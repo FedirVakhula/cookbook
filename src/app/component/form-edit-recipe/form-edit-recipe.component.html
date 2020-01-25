@@ -1,0 +1,43 @@
+<form [formGroup]="addrecipe" novalidate>
+    <div class="main-conteiner">
+        <h2>
+            Назва рецепту:
+            <input type="text" formControlName="name">
+        </h2>
+        <p *ngIf="addrecipe.get('name').hasError('minlength')">
+          ім'я повине мати не менше трьох символів
+        </p>
+
+        <h4>Рецепт</h4>
+        <div class="mesage-area">
+            <p>спосіб приготування:  </p>
+            <input cols="30" rows="10" formControlName="recipe">
+              <p *ngIf="addrecipe.get('recipe').hasError('minlength')">
+                рецепт повине мати не менше трьох символів
+              </p>
+        </div>
+        <div formArrayName="ingredients">
+            <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+                <p *ngIf="addrecipe.get('ingredients').hasError('minlength')">
+                  інградієнт повине мати не менше трьох символів
+                </p>
+                <label for="ingredient">інградієнт:</label>
+                <input type="text" formControlName="ingredient1">
+            </div>
+        </div>
+        <hr>
+        <h4>дата добавлення</h4>
+        {{resipe.version[0].date | date:"dd/MM/yy"}}
+        <div class="button-edit" *ngIf="!isEdited">
+            <button (click)="goBack()">відмінити</button>
+            <button (click)="addIngredients()">добавити інградієнт</button>
+            <button (click)="saveEdit()" [ngClass]="{'has-error-button': !addrecipe.valid }"
+              [disabled]="!addrecipe.valid">зберегти</button>
+        </div>
+        <div class="button-edit" *ngIf="isEdited">
+            <button (click)="goBack()">повернутися</button>
+            <button (click)="goEdit()">редагувати</button>
+            <button (click)="goAllRecipes()">всі версії рецепту</button>
+        </div>
+    </div>
+</form>

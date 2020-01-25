@@ -1,0 +1,52 @@
+<form [formGroup]="addrecipe" novalidate class="main-conteiner">
+  <h3> Ваш рецепт</h3>
+  <div class="input-control">
+    <label for="name">Назва рецепту</label>
+    <input type="text" placeholder="Назва рецепту" formControlName="name"
+    [ngClass]="{'has-error': !addrecipe.get('name').valid }">
+    <span class="help-block" *ngIf="addrecipe.get('name').errors">
+      <span *ngIf="addrecipe.get('name').hasError('required')">
+        будь-ласка введіть ім'я
+      </span>
+      <span *ngIf="addrecipe.get('name').hasError('minlength')">
+        ім'я повине мати не менше трьох символів
+      </span>
+    </span>
+  </div>
+  <div>
+    <label for="recipe">Спосіб пригтування</label>
+    <textarea type="text" placeholder="Спосіб пригтування" formControlName="recipe"
+    [ngClass]="{'has-error': !addrecipe.get('recipe').valid }"></textarea>
+    <span class="help-block" *ngIf="addrecipe.get('recipe').errors">
+      <span *ngIf="addrecipe.get('recipe').hasError('required')">
+        будь-ласка введіть рецепт приготування
+      </span>
+      <span *ngIf="addrecipe.get('recipe').hasError('minlength')">
+        рецепт повине мати не менше трьох символів
+      </span>
+    </span>
+  </div>
+  <div formArrayName="ingredients">
+    <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+      <label for="ingredient1">інградієнт</label>
+      <input type="text" placeholder="інградієнт"
+        formControlName="ingredient1"
+        [ngClass]="{'has-error': !addrecipe.get('ingredients').valid }">
+            <span class="help-block" *ngIf="addrecipe.get('ingredients').errors">
+              <span *ngIf="addrecipe.get('ingredient').hasError('required')">
+                будь-ласка введіть рецепт приготування
+              </span>
+              <span *ngIf="addrecipe.get('ingredients').hasError('minlength')">
+                рецепт повине мати не менше трьох символів
+              </span>
+            </span>
+    </div>
+
+  </div>
+  <div class="input-control input-control-button">
+    <button (click)="goBack()">повернутися</button>
+    <button (click)="addIngredients()">добавити інградієнт</button>
+    <button (click)="addNewRecipe()" [ngClass]="{'has-error-button': !addrecipe.valid }"
+    [disabled]="!addrecipe.valid">додати рецепт</button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+.main-recipe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recipe-container {
+    margin: 1%;
+    width: 45%;
+}
+
+.add-recipe-button {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+    background: #ebebeb;
+    color: #3b3b3b;
+    border: none;
+    height: 40px;
+    outline: none;
+}

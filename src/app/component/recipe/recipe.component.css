@@ -1,0 +1,33 @@
+.ingredient {
+    display: flex;
+    text-align: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    color: #555555;
+}
+
+.main-conteiner {
+    border: solid 1px;
+    margin: 20px;
+    padding: 15px;
+    background: #8a8a8a;
+    color: #ffffff;
+}
+
+button {
+    background: #ebebeb;
+    color: #3b3b3b;
+    border: none;
+    width: 60%;
+    height: 40px;
+    outline: none;
+    margin: 2%;
+}
+
+.recipe-button {
+    display: flex;
+    justify-content: center;
+}

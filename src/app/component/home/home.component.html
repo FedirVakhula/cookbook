@@ -1,0 +1,10 @@
+<div class="main-recipe">
+  <div *ngFor="let recipe of recipes" class="recipe-container">
+    <app-recipe [recipe]="recipe">
+  
+    </app-recipe>
+  </div>  
+</div>
+<div class="add-recipe-button">
+  <button routerLink="/add">добавити рецепт</button>
+</div>

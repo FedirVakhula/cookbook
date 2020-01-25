@@ -1,0 +1,41 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+.main-conteiner {
+    width: 600px;
+    border: solid 1px;
+    margin: 20px;
+    padding: 15px;
+    background: #8a8a8a;
+    color: #ffffff;
+}
+
+button {
+    background: #ebebeb;
+    color: #3b3b3b;
+    border: none;
+    width: 30%;
+    height: 40px;
+    outline: none;
+}
+
+.input-control-button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+input {
+    margin: 1%;
+}
+
+.has-error {
+  border: #ff0000 solid 2px;
+}
+
+.has-error-button {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
